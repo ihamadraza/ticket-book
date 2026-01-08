@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Flight Booking</title>
+<style>
+  body{font-family:Arial;margin:0;background:#f4f4f4}
+  header,footer{background:#222;color:#fff;padding:12px;text-align:center}
+  main{padding:20px}
+  select,input,button{
+    width:100%;padding:10px;margin:8px 0;font-size:16px
+  }
+  button{background:#0a7cff;color:#fff;border:0;border-radius:5px}
+  #msg{margin-top:10px;font-weight:bold}
+</style>
+</head>
+<body>
+
+<header>✈️ Mini Flight Booking</header>
+
+<main>
+<select id="from">
+  <option>From: Pakistan</option><option>India</option><option>China</option>
+  <option>Iran</option><option>Afghanistan</option><option>USA</option><option>UK</option>
+</select>
+
+<select id="to">
+  <option>To: Pakistan</option><option>India</option><option>China</option>
+  <option>Iran</option><option>Afghanistan</option><option>USA</option><option>UK</option>
+</select>
+
+<input type="date" id="date">
+
+<button onclick="book()">Book Flight</button>
+
+<div id="msg"></div>
+</main>
+
+<footer>© 2026 Mini Airlines</footer>
+
+<script>
+function book(){
+  let f=from.value.replace("From: ","");
+  let t=to.value.replace("To: ","");
+  let d=date.value;
+  if(f===t||!d) return msg.innerText="❌ Check inputs";
+  let price=200+Math.floor(Math.random()*300);
+  msg.innerText=`✅ ${f} → ${t}\n📅 ${d}\n💲${price}`;
+}
+</script>
+
+</body>
+</html>
